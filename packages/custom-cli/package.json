@@ -1,7 +1,0 @@
-{
-  "name": "custom-cli",
-  "version": "0.0.1",
-  "description": "a rollup stagging for @custom-ui",
-  "main": "index.js",
-  "license": "MIT"
-}
