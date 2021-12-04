@@ -6,7 +6,7 @@
   "private": true,
   "workspaces": [
     "packages/@custom-ui/*",
-    "packages/doc"
+    "packages/@custom-ui-docs"
   ],
   "devDependencies": {
     "lerna": "4.0.0",

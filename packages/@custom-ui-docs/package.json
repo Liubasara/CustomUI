@@ -1,0 +1,10 @@
+{
+  "name": "@custom-ui/docs",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": "true",
+  "dependencies": {
+    "jest": "27.4.3",
+    "storybook": "6.2.9"
+  }
+}
