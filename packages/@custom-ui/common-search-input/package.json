@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": "true",
   "dependencies": {
+    "@vue/composition-api": "1.4.1",
     "vue": "2.6.14"
   }
 }
