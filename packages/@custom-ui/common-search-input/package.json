@@ -1,8 +1,10 @@
 {
   "name": "@custom-ui/common-search-input",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "private": "true",
-  "dependencies": {}
+  "dependencies": {
+    "vue": "2.6.14"
+  }
 }
