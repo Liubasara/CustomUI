@@ -6,10 +6,10 @@
   "private": true,
   "workspaces": [
     "packages/@custom-ui/*",
-    "packages/@custom-ui-docs"
+    "packages/@custom-ui-docs",
+    "packages/build-utils"
   ],
   "devDependencies": {
-    "lerna": "4.0.0",
-    "rollup": "2.60.2"
+    "lerna": "4.0.0"
   }
 }

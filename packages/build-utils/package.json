@@ -1,0 +1,9 @@
+{
+  "name": "@custom/build-utils",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": "true",
+  "dependencies": {
+    "rollup": "2.60.2"
+  }
+}

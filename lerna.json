@@ -1,7 +1,8 @@
 {
   "packages": [
     "packages/@custom-ui/*",
-    "packages/@custom-ui-docs"
+    "packages/@custom-ui-docs",
+    "packages/build-utils"
   ],
   "version": "independent",
   "npmClient": "yarn",
