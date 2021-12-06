@@ -3,7 +3,14 @@
   "version": "0.0.1",
   "license": "MIT",
   "private": "true",
+  "type": "module",
+  "scripts": {
+    "build:customUI": "node ./src/custom-ui/build.js"
+  },
   "dependencies": {
+    "chalk": "^5.0.0",
+    "glob": "7.2.0",
+    "ora": "6.0.1",
     "rollup": "2.60.2"
   }
 }
