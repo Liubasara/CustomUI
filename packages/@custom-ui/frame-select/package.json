@@ -4,8 +4,11 @@
   "main": "src/index.ts",
   "license": "MIT",
   "private": "true",
-  "dependencies": {
+  "devDependencies": {
     "typescript": "4.5.2",
     "vue": "3.2.23"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.23"
   }
 }

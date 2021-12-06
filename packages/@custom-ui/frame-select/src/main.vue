@@ -14,6 +14,9 @@ export default defineComponent({
 </script>
 
 <style lang="less">
+@import '~@custom-liubasara-ui/frame-select/main.less';
+@import './main.less';
+
 .ts-template {
   background: #000;
   color: red;

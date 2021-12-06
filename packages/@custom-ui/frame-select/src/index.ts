@@ -1,3 +1,3 @@
-import FrameSelect from '@custom-ui/frame-select/src/main.vue'
+import FrameSelect from './main.vue'
 
 export default FrameSelect
