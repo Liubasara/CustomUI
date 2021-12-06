@@ -13,7 +13,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '~@custom-liubasara-ui/frame-select/main.less';
 @import './main.less';
 

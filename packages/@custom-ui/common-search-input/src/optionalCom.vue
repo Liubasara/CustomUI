@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .js-template {
   background: #000;
   color: blue;
