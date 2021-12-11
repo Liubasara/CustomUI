@@ -5,6 +5,14 @@
 > - [Monorepo-多包单仓库的开发模式](https://juejin.cn/post/6844904206076248072)
 > - [Lerna + yarn 实现 monorepo 管理](https://juejin.cn/post/6844904112534847501)
 
+## TODO LIST
+
+- build-utils 打包 custom-ui 以及发布流程跑通
+- 引入 stroybook 预览组件生成文档
+- custom-ui 组件模板生成
+  - js 模板
+  - ts 模板
+
 ## 环境依赖
 
 ```txt
