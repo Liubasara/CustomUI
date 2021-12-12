@@ -61,6 +61,12 @@ async function getPlugins(buildOpt) {
       sourceMap: !IS_PRODUCTION,
       inlineSources: !IS_PRODUCTION
     })
+    // typescriptPlugin({
+    //   // FIXME:
+    //   tsconfig: `${UI_PATH}/frame-select/tsconfig.json`,
+    //   sourceMap: !IS_PRODUCTION,
+    //   inlineSources: !IS_PRODUCTION
+    // })
   ]
 }
 
@@ -73,7 +79,7 @@ async function startBuild({
   if (!inputPath || !outputPath)
     throw new Error(
       `请检查${
-        (packageJson && packageJson.main) || '未识别'
+        (packageJson && packageJson.srcEntry) || '未识别'
       }组件的输入输出路径!`
     )
   const { dependencies = null, peerDependencies = null } = packageJson || {}
@@ -108,7 +114,7 @@ async function buildComponents() {
     // 查重
     if (componentName in componentMap)
       throw new Error(`Component ${componentName} already exit!`)
-    const entryFilePath = path.resolve(componentPath, json.main)
+    const entryFilePath = path.resolve(componentPath, json.srcEntry)
     const outputFilePath = path.resolve(componentPath, DIST)
     componentMap[componentName] = {
       packageJson: json,

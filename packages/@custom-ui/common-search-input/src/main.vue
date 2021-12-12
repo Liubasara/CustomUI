@@ -16,7 +16,7 @@ export default {
 
 <style lang="less" scoped>
 .js-template {
-  background: #000;
-  color: blue;
+  background: lightcyan;
+  color: red;
 }
 </style>

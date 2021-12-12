@@ -1,7 +1,8 @@
 {
   "name": "@custom-liubasara-ui/frame-select",
   "version": "0.0.1",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "srcEntry": "src/index.ts",
   "license": "MIT",
   "private": "true",
   "devDependencies": {
