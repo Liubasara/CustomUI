@@ -11,7 +11,10 @@ import typescriptPlugin from '@rollup/plugin-typescript'
 import postCSSPlugin from 'rollup-plugin-postcss'
 import rollupPostcssLessLoader from 'rollup-plugin-postcss-webpack-alias-less-loader'
 import autoprefixerPlugin from 'autoprefixer'
-import { stat } from  'fs/promises'
+import { stat } from 'fs/promises'
+import parseArgs from 'minimist'
+
+const processArgs = parseArgs(process.argv.slice(2))
 
 const requireJson = createRequire(import.meta.url)
 const { glob } = globPkg
@@ -24,9 +27,12 @@ const UI_PATH = path.resolve(__dirname, '..', '..', '..', '@custom-ui')
 const DIST = 'dist'
 const PACKAGE_INDEX_SCRIPT = 'index.js'
 const PACKAGE_INDEX_STYLE = 'style.css'
-const IS_PRODUCTION = !process.env.ROLLUP_WATCH
+// 如果 npm 执行命令带了 --watch 参数
+const IS_WATCH = processArgs.watch === true || processArgs.w === true
+const IS_PRODUCTION = !IS_WATCH
 
 const spinner = ora()
+const buildOptionRecords = []
 
 async function getPlugins(buildOpt) {
   const { componentPath = '' } = buildOpt
@@ -55,27 +61,18 @@ async function getPlugins(buildOpt) {
       ],
       plugins: [autoprefixerPlugin()]
     }),
-    tsConfigFileStat && typescriptPlugin({
-      // FIXME:
-      tsconfig: tsConfigFilePath,
-      sourceMap: !IS_PRODUCTION,
-      inlineSources: !IS_PRODUCTION
-    })
-    // typescriptPlugin({
-    //   // FIXME:
-    //   tsconfig: `${UI_PATH}/frame-select/tsconfig.json`,
-    //   sourceMap: !IS_PRODUCTION,
-    //   inlineSources: !IS_PRODUCTION
-    // })
+    tsConfigFileStat &&
+      typescriptPlugin({
+        // FIXME:
+        tsconfig: tsConfigFilePath,
+        sourceMap: !IS_PRODUCTION,
+        inlineSources: !IS_PRODUCTION
+      })
   ]
 }
 
-async function startBuild({
-  inputPath,
-  outputPath,
-  plugins = [],
-  packageJson = {}
-} = {}) {
+async function startBuild(buildOpts = {}) {
+  const { inputPath, outputPath, plugins = [], packageJson = {} } = buildOpts
   if (!inputPath || !outputPath)
     throw new Error(
       `请检查${
@@ -99,7 +96,12 @@ async function startBuild({
   }
   const bundle = await rollup(inputOptions)
   const { output } = await bundle.write(outputOptions)
-  console.log(output)
+  IS_PRODUCTION && console.log(output)
+  IS_WATCH && buildOptionRecords.push({
+    inputOptions,
+    outputOptions,
+    ...buildOpts
+  })
 }
 
 async function buildComponents() {
@@ -136,10 +138,25 @@ async function buildComponents() {
   console.log(componentMap)
 }
 
+function startWatch() {
+  if (!buildOptionRecords.length) return
+  console.log(chalk`\n\n{black.bgGreen  Done } {green Watching......}\n`)
+  for (let record of buildOptionRecords) {
+    const watcher = watch({
+      ...record.inputOptions,
+      output: [record.outputOptions]
+    })
+    watcher.on('event', (event) => {
+      console.log(event)
+    })
+  }
+}
+
 async function build() {
   try {
     spinner.start('开始构建路径 \n')
     await buildComponents()
+    IS_WATCH && startWatch()
   } catch (e) {
     console.log(chalk.red(e))
   } finally {
