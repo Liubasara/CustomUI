@@ -8,6 +8,7 @@
 ## TODO LIST
 
 - build-utils 打包 custom-ui 以及发布流程跑通
+- watch 模式
 - 引入 stroybook 预览组件生成文档
 - custom-ui 组件模板生成
   - js 模板

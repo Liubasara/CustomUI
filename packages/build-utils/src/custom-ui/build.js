@@ -11,6 +11,7 @@ import typescriptPlugin from '@rollup/plugin-typescript'
 import postCSSPlugin from 'rollup-plugin-postcss'
 import rollupPostcssLessLoader from 'rollup-plugin-postcss-webpack-alias-less-loader'
 import autoprefixerPlugin from 'autoprefixer'
+import { stat } from  'fs/promises'
 
 const requireJson = createRequire(import.meta.url)
 const { glob } = globPkg
@@ -27,7 +28,15 @@ const IS_PRODUCTION = !process.env.ROLLUP_WATCH
 
 const spinner = ora()
 
-function getPlugins(buildOpt) {
+async function getPlugins(buildOpt) {
+  const { componentPath = '' } = buildOpt
+  const tsConfigFilePath = path.resolve(componentPath, 'tsconfig.json')
+  let tsConfigFileStat = null
+  try {
+    tsConfigFileStat = await stat(tsConfigFilePath)
+  } catch (e) {
+    // 非 ts 格式
+  }
   return [
     vuePlugin({
       css: false
@@ -46,9 +55,9 @@ function getPlugins(buildOpt) {
       ],
       plugins: [autoprefixerPlugin()]
     }),
-    typescriptPlugin({
+    tsConfigFileStat && typescriptPlugin({
       // FIXME:
-      tsconfig: `${UI_PATH}/frame-select/tsconfig.json`,
+      tsconfig: tsConfigFilePath,
       sourceMap: !IS_PRODUCTION,
       inlineSources: !IS_PRODUCTION
     })
@@ -114,7 +123,7 @@ async function buildComponents() {
         inputPath: componentOpt.inputPath,
         outputPath: path.resolve(componentOpt.outputPath, PACKAGE_INDEX_SCRIPT),
         packageJson: componentOpt.packageJson,
-        plugins: getPlugins(componentOpt)
+        plugins: await getPlugins(componentOpt)
       })
     })
   )
