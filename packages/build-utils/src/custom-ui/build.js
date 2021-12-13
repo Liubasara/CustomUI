@@ -13,8 +13,18 @@ import rollupPostcssLessLoader from 'rollup-plugin-postcss-webpack-alias-less-lo
 import autoprefixerPlugin from 'autoprefixer'
 import { stat } from 'fs/promises'
 import parseArgs from 'minimist'
+import lodashPkg from 'lodash'
+import del from 'rollup-plugin-delete'
+
+const { isArray, uniq } = lodashPkg
 
 const processArgs = parseArgs(process.argv.slice(2))
+const argWatch = processArgs.watch || processArgs.w || false
+let argComopnents = processArgs.component || []
+if (!isArray(argComopnents)) {
+  argComopnents = [argComopnents]
+}
+argComopnents = uniq(argComopnents)
 
 const requireJson = createRequire(import.meta.url)
 const { glob } = globPkg
@@ -28,7 +38,7 @@ const DIST = 'dist'
 const PACKAGE_INDEX_SCRIPT = 'index.js'
 const PACKAGE_INDEX_STYLE = 'style.css'
 // 如果 npm 执行命令带了 --watch 参数
-const IS_WATCH = processArgs.watch === true || processArgs.w === true
+const IS_WATCH = argWatch === true
 const IS_PRODUCTION = !IS_WATCH
 
 const spinner = ora()
@@ -44,6 +54,10 @@ async function getPlugins(buildOpt) {
     // 非 ts 格式
   }
   return [
+    del({
+      force: true,
+      targets: path.resolve(buildOpt.componentPath, DIST, '*')
+    }),
     vuePlugin({
       css: false
     }),
@@ -97,11 +111,12 @@ async function startBuild(buildOpts = {}) {
   const bundle = await rollup(inputOptions)
   const { output } = await bundle.write(outputOptions)
   IS_PRODUCTION && console.log(output)
-  IS_WATCH && buildOptionRecords.push({
-    inputOptions,
-    outputOptions,
-    ...buildOpts
-  })
+  IS_WATCH &&
+    buildOptionRecords.push({
+      inputOptions,
+      outputOptions,
+      ...buildOpts
+    })
 }
 
 async function buildComponents() {
@@ -113,6 +128,15 @@ async function buildComponents() {
     const json = requireJson(packageJson)
     const componentName = json.name
     const componentPath = path.dirname(packageJson)
+    // 若传入 components 参数，仅构建指定组件
+    let canBuild = true
+    if (argComopnents.length > 0) {
+      canBuild = false
+    }
+    if (~argComopnents.indexOf(componentName)) {
+      canBuild = true
+    }
+    if (!canBuild) return
     // 查重
     if (componentName in componentMap)
       throw new Error(`Component ${componentName} already exit!`)
