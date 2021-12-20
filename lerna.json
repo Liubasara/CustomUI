@@ -13,7 +13,7 @@
       "npmClientArgs": ["--no-package-lock", "--no-ci"]
     },
     "version": {
-      "allowBranch": ["master"],
+      "allowBranch": ["master", "func-init-deploy"],
       "amend": false,
       "conventionalCommits": true
     },
