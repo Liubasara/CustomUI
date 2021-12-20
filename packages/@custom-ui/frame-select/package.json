@@ -4,7 +4,6 @@
   "main": "dist/index.js",
   "srcEntry": "src/index.ts",
   "license": "MIT",
-  "private": "true",
   "devDependencies": {
     "typescript": "4.5.2"
   },

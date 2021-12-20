@@ -2,7 +2,6 @@
   "name": "@custom-liubasara/build-utils",
   "version": "0.0.1",
   "license": "MIT",
-  "private": "true",
   "type": "module",
   "scripts": {
     "build:customUI": "node ./src/custom-ui/build.js"
