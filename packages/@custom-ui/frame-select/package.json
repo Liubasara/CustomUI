@@ -1,5 +1,5 @@
 {
-  "name": "@custom-liubasara-ui/frame-select",
+  "name": "@custom-lb-ui/frame-select",
   "version": "0.0.1",
   "main": "dist/index.js",
   "srcEntry": "src/index.ts",

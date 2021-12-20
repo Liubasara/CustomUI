@@ -1,5 +1,5 @@
 {
-  "name": "@custom-liubasara-ui/docs",
+  "name": "@custom-lb-ui/docs",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
@@ -8,8 +8,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@custom-liubasara-ui/common-search-input": "0.0.1",
-    "@custom-liubasara-ui/frame-select": "0.0.1",
+    "@custom-lb-ui/common-search-input": "0.0.1",
+    "@custom-lb-ui/frame-select": "0.0.1",
     "jest": "27.4.3",
     "storybook": "6.2.9"
   },
