@@ -45,7 +45,11 @@ lerna info versioning independent
 
 yarn workspaces info --json
 
-发布相关:
+## 发布流程
+
+> 参考资料:
+>
+> [Lerna 多 package 源代码管理方案](https://blog.csdn.net/mjzhang1993/article/details/111563436)
 
 注册:
 
@@ -54,3 +58,15 @@ npm adduser
 登录:
 
 npm login --registry https://registry.npmjs.org
+
+注册后进行邮箱验证，随后前往 https://www.npmjs.com/ 中进行 Organization 的添加，需要添加的 organiaztion 可以通过`yarn lerna list`命令来列出。比如 packageName 为 @custom-lb/build-utils，Organization 名字即为 custom-lb
+
+若要发布到公共仓库（如 registry.npmjs.org），需要为每个包的 package.json 添加 access: public 的选项
+
+```json
+{
+  "publishConfig": {
+    "access": "public"
+  }
+}
+```

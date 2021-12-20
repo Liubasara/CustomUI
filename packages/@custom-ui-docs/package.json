@@ -21,5 +21,9 @@
     "@storybook/vue3": "^6.4.9",
     "babel-loader": "^8.2.3",
     "vue-loader": "^16.8.3"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "e2f48895daba3c235cc244c49654f6d56a3a729e"
 }

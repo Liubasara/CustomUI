@@ -9,5 +9,9 @@
   },
   "dependencies": {
     "vue": "3.2.23"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "e2f48895daba3c235cc244c49654f6d56a3a729e"
 }

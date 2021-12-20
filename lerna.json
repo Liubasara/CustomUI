@@ -19,7 +19,7 @@
     },
     "publish": {
       "verifyAccess": false,
-      "registry": "https://registry.npmmirror.com"
+      "registry": "https://registry.npmjs.org"
     }
   }
 }
