@@ -14,7 +14,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@import '~@custom-liubasara-ui/frame-select/main.less';
+@import '~@custom-lb-ui/frame-select/main.less';
 @import './main.less';
 
 .ts-template {
