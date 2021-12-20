@@ -44,3 +44,13 @@ lerna info versioning independent
 查看当前 worktree:
 
 yarn workspaces info --json
+
+发布相关:
+
+注册:
+
+npm adduser
+
+登录:
+
+npm login --registry https://registry.npmjs.org
