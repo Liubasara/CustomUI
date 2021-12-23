@@ -41,11 +41,23 @@ lerna info versioning independent
 
 ## 命令相关
 
-查看当前 worktree:
+### 构建相关
+
+构建特定组件（--component 参数，-w 为 watch 模式）:
+
+yarn workspace @custom-lb/build-utils build:customUI --component=@custom-lb-ui/frame-select -w
+
+### 查看当前 worktree:
 
 yarn workspaces info --json
 
-## 发布流程
+### link 相关
+
+yarn lerna exec -- yarn link
+
+lerna exec -- yarn unlink
+
+### 发布流程
 
 > 参考资料:
 >
