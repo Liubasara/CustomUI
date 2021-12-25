@@ -4,10 +4,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useDemo } from '@/hooks/useDemo'
+
 export default defineComponent({
   setup() {
-    const TSTemplate = 'my ts template'
-    // const TSTemplate: string = 'my ts template'
+    // const TSTemplate = 'my ts template'
+    const TSTemplate: string = 'my ts template'
+    useDemo()
     return {
       TSTemplate
     }
