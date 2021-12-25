@@ -6,16 +6,18 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   setup() {
+    const TSTemplate = 'my ts template'
+    // const TSTemplate: string = 'my ts template'
     return {
-      TSTemplate: 'my ts template'
+      TSTemplate
     }
   }
 })
 </script>
 
 <style lang="less" scoped>
-@import '~@custom-lb-ui/frame-select/main.less';
-@import './main.less';
+@import "~@custom-lb-ui/frame-select/main.less";
+@import "./main.less";
 
 .ts-template {
   background: #000;

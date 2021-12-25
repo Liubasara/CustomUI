@@ -58,6 +58,14 @@ async function getPlugins(buildOpt) {
       force: true,
       targets: path.resolve(buildOpt.componentPath, DIST, '*')
     }),
+    tsConfigFileStat &&
+      typescriptPlugin({
+        // FIXME:
+        tsconfig: tsConfigFilePath,
+        filterRoot: buildOpt.componentPath,
+        sourceMap: !IS_PRODUCTION,
+        inlineSources: !IS_PRODUCTION
+      }),
     vuePlugin({
       css: false
     }),
@@ -74,14 +82,7 @@ async function getPlugins(buildOpt) {
         })
       ],
       plugins: [autoprefixerPlugin()]
-    }),
-    tsConfigFileStat &&
-      typescriptPlugin({
-        // FIXME:
-        tsconfig: tsConfigFilePath,
-        sourceMap: !IS_PRODUCTION,
-        inlineSources: !IS_PRODUCTION
-      })
+    })
   ]
 }
 
