@@ -181,6 +181,15 @@ function startWatch() {
 async function build() {
   try {
     spinner.start('开始构建路径 \n')
+    if (argComopnents.length > 0) {
+      console.log(
+        chalk.green(
+          `~~ start to build components:\n\t${argComopnents.join(',\n\t')} ~~\n`
+        )
+      )
+    } else {
+      console.log(chalk.green(`~~ start to build all components ~~\n`))
+    }
     await buildComponents()
     IS_WATCH && startWatch()
   } catch (e) {
