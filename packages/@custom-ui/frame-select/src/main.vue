@@ -1,7 +1,12 @@
 <template>
-  <div class="ts-template">
-    <Demo></Demo>
-    {{ TSTemplate }}
+  <div>
+    <div class="ts-template">
+      <Demo></Demo>
+      {{ TSTemplate }}
+    </div>
+    <div>
+      <CommonSearchInput></CommonSearchInput>
+    </div>
   </div>
 </template>
 
@@ -9,10 +14,12 @@
 import { defineComponent } from 'vue'
 import { useDemo } from '@/hooks/useDemo'
 import Demo from '@/components/Demo.vue'
+import CommonSearchInput from '@custom-lb-ui/common-search-input'
 
 export default defineComponent({
   components: {
-    Demo
+    Demo,
+    CommonSearchInput
   },
   setup() {
     // const TSTemplate = 'my ts template'

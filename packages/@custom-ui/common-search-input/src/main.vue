@@ -1,7 +1,7 @@
 <template>
   <div class="js-template">
     <Demo></Demo>
-    {{ JSTemplate }}
+    <div>{{ JSTemplate }}</div>
   </div>
 </template>
 

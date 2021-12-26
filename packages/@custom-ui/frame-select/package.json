@@ -5,10 +5,14 @@
   "srcEntry": "src/index.ts",
   "license": "MIT",
   "devDependencies": {
+    "@custom-lb-ui/common-search-input": "0.0.1",
     "typescript": "4.5.2"
   },
   "dependencies": {
     "vue": "3.2.23"
+  },
+  "peerDependencies": {
+    "@custom-lb-ui/common-search-input": "^0.0.1"
   },
   "publishConfig": {
     "access": "public"

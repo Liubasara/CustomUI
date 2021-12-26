@@ -1,6 +1,6 @@
 <template>
   <div>
-    Demo
+    Demo common-search-input
   </div>
 </template>
 <script>
