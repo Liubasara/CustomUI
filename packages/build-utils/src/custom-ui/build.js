@@ -16,6 +16,7 @@ import { stat } from 'fs/promises'
 import parseArgs from 'minimist'
 import lodashPkg from 'lodash'
 import del from 'rollup-plugin-delete'
+import alias from '@rollup/plugin-alias'
 
 const { isArray, uniq } = lodashPkg
 
@@ -58,6 +59,11 @@ async function getPlugins(buildOpt) {
     del({
       force: true,
       targets: path.resolve(buildOpt.componentPath, DIST, '*')
+    }),
+    alias({
+      entries: [
+        { find: '@', replacement: path.resolve(buildOpt.componentPath, 'src') }
+      ]
     }),
     tsConfigFileStat &&
       typescriptPlugin({

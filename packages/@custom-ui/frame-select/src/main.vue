@@ -1,12 +1,19 @@
 <template>
-  <div class="ts-template">{{ TSTemplate }}</div>
+  <div class="ts-template">
+    <Demo></Demo>
+    {{ TSTemplate }}
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useDemo } from '@/hooks/useDemo'
+import Demo from '@/components/Demo.vue'
 
 export default defineComponent({
+  components: {
+    Demo
+  },
   setup() {
     // const TSTemplate = 'my ts template'
     const TSTemplate: string = 'my ts template'

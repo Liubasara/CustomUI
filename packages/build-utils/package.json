@@ -7,6 +7,7 @@
     "build:customUI": "node ./src/custom-ui/build.js"
   },
   "dependencies": {
+    "@rollup/plugin-alias": "^3.1.8",
     "@vue/compiler-sfc": "^3.2.23",
     "autoprefixer": "^10.4.0",
     "chalk": "^5.0.0",
