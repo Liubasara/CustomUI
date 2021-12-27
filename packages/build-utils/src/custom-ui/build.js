@@ -17,6 +17,7 @@ import parseArgs from 'minimist'
 import lodashPkg from 'lodash'
 import del from 'rollup-plugin-delete'
 import alias from '@rollup/plugin-alias'
+import ttypescript from 'ttypescript'
 
 const { isArray, uniq } = lodashPkg
 
@@ -61,6 +62,7 @@ async function getPlugins(buildOpt) {
       targets: path.resolve(buildOpt.componentPath, DIST, '*')
     }),
     alias({
+      resolve: ['.js', '.ts', '.vue'],
       entries: [
         { find: '@', replacement: path.resolve(buildOpt.componentPath, 'src') }
       ]
@@ -71,7 +73,19 @@ async function getPlugins(buildOpt) {
         tsconfig: tsConfigFilePath,
         filterRoot: buildOpt.componentPath,
         sourceMap: !IS_PRODUCTION,
-        inlineSources: !IS_PRODUCTION
+        inlineSources: !IS_PRODUCTION,
+        typescript: ttypescript,
+        tsconfigDefaults: {
+          compilerOptions: {
+            plugins: [
+              { transform: 'typescript-transform-paths' },
+              {
+                transform: 'typescript-transform-paths',
+                afterDeclarations: true
+              }
+            ]
+          }
+        }
       }),
     vuePlugin({
       css: false
