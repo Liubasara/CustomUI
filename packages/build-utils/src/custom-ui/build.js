@@ -78,10 +78,9 @@ async function getPlugins(buildOpt) {
         tsconfigDefaults: {
           compilerOptions: {
             plugins: [
-              { transform: 'typescript-transform-paths' },
               {
-                transform: 'typescript-transform-paths',
-                afterDeclarations: true
+                transform: '@zerollup/ts-transform-paths',
+                exclude: ['*']
               }
             ]
           }

@@ -3944,6 +3944,20 @@
     tslib "^2.3.1"
     upath2 "^3.1.10"
 
+"@zerollup/ts-helpers@^1.7.18":
+  version "1.7.18"
+  resolved "https://registry.npmmirror.com/@zerollup/ts-helpers/download/@zerollup/ts-helpers-1.7.18.tgz#747177f6d5abc06c3a0f5dffe7362d365cf0391d"
+  integrity sha1-dHF39tWrwGw6D13/5zYtNlzwOR0=
+  dependencies:
+    resolve "^1.12.0"
+
+"@zerollup/ts-transform-paths@^1.7.18":
+  version "1.7.18"
+  resolved "https://registry.npmmirror.com/@zerollup/ts-transform-paths/download/@zerollup/ts-transform-paths-1.7.18.tgz#72f705c66690879e51d53c73dc76c4e2518a8c50"
+  integrity sha1-cvcFxmaQh55R1Txz3HbE4lGKjFA=
+  dependencies:
+    "@zerollup/ts-helpers" "^1.7.18"
+
 JSONStream@^1.0.4:
   version "1.3.5"
   resolved "https://registry.npm.taobao.org/JSONStream/download/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"
@@ -14350,13 +14364,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.nlark.com/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typescript-transform-paths@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.npmmirror.com/typescript-transform-paths/download/typescript-transform-paths-3.3.1.tgz#74526bc1b6dc575ffe269cc81833db7bd81763e1"
-  integrity sha1-dFJrwbbcV1/+JpzIGDPbe9gXY+E=
-  dependencies:
-    minimatch "^3.0.4"
 
 typescript@4.5.2, typescript@^4.5.2:
   version "4.5.2"
