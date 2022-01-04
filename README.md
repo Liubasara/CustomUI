@@ -95,6 +95,8 @@ lerna exec -- yarn unlink
 
    通过检索当前 workspace 下的所有版本号进行发布：`yarn lerna publish from-package`
 
+   发布 alpha 版本`yarn lerna publish --canary`
+
    > [参考文档](http://www.febeacon.com/lerna-docs-zh-cn/routes/commands/publish.html#from-git)
    >
    > ### `from-git`

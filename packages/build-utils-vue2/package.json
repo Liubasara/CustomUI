@@ -1,0 +1,24 @@
+{
+  "name": "@custom-lb/build-utils-vue2",
+  "version": "0.0.1-alpha.37+9cd05fa",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build:customUI": "node ./src/custom-ui/build.js"
+  },
+  "dependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
+    "lodash": "^4.17.21",
+    "ora": "^6.0.1",
+    "postcss": "^8.2.15",
+    "rollup": "^2.63.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-postcss-webpack-alias-less-loader": "^1.0.0",
+    "rollup-plugin-vue2": "^0.8.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "9cd05fa0bebe0deffd8b08ace81efe2bc144a2eb"
+}

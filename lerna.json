@@ -1,8 +1,10 @@
 {
   "packages": [
     "packages/@custom-ui/*",
+    "packages/@custom-ui-vue2/*",
     "packages/@custom-ui-docs",
-    "packages/build-utils"
+    "packages/build-utils",
+    "packages/build-utils-vue2"
   ],
   "version": "independent",
   "npmClient": "yarn",
