@@ -36,7 +36,7 @@ lerna info versioning independent
   npmPackages:
     lerna: 4.0.0 => 4.0.0 
 
-✨  Done in 0.79s.
+✨
 ```
 
 ## 命令相关
@@ -50,6 +50,14 @@ yarn workspace @custom-lb/build-utils build:customUI --component=@custom-lb-ui/f
 ### 查看当前 worktree:
 
 yarn workspaces info --json
+
+### 依赖安装相关
+
+yarn 单独安装一个 packages 的依赖（防止安装到根目录的 node_modules 下的时候某些 webpack loaders 会无法识别相应路径）:
+
+`yarn workspace <PACKAGE_NAME> install --focus`
+
+> [default focusing](https://classic.yarnpkg.com/blog/2018/05/18/focused-workspaces/#focusing-by-default)
 
 ### link 相关
 
@@ -106,3 +114,9 @@ lerna exec -- yarn unlink
    > ### `from-package`
    >
    > 与`from-git`关键字类似，只是要发布的包列表是通过检查每个`package.json`确定的，并且要确定注册表中是否存在任意版本的包。注册表中没有的任何版本都将被发布。当前一个`lerna publish`未能将所有包发布到注册表时，就是他发挥的时候了。
+
+### git 相关
+
+批量删除远端 git 分支
+
+git branch -r | awk -F/ '/\/func/{print $2}' | grep -v "func-init$" | xargs -I {} git push origin :{}

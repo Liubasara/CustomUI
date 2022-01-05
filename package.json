@@ -8,6 +8,7 @@
     "packages/@custom-ui/*",
     "packages/@custom-ui-vue2/*",
     "packages/@custom-ui-docs",
+    "packages/@custom-ui-docs-vue2",
     "packages/build-utils",
     "packages/build-utils-vue2"
   ],

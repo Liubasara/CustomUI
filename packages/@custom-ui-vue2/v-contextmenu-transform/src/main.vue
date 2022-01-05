@@ -1,5 +1,5 @@
 <template>
-  <div class="js-template">
+  <div class="js-template-wrap">
     <Demo></Demo>
     <div>{{ JSTemplate }}</div>
   </div>
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.js-template {
+.js-template-wrap {
   background: lightcyan;
   color: red;
 }
