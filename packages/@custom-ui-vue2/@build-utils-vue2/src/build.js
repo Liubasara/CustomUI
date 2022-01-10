@@ -6,9 +6,6 @@ import globPkg from 'glob'
 import { promisify } from 'util'
 import chalk from 'chalk'
 import { createRequire } from 'module'
-import vuePlugin from 'rollup-plugin-vue'
-import typescriptPlugin from 'rollup-plugin-typescript2'
-// import typescriptPlugin from '@rollup/plugin-typescript'
 import postCSSPlugin from 'rollup-plugin-postcss'
 import rollupPostcssLessLoader from 'rollup-plugin-postcss-webpack-alias-less-loader'
 import autoprefixerPlugin from 'autoprefixer'
@@ -17,7 +14,7 @@ import parseArgs from 'minimist'
 import lodashPkg from 'lodash'
 import del from 'rollup-plugin-delete'
 import alias from '@rollup/plugin-alias'
-import ttypescript from 'ttypescript'
+import vuePlugin from 'rollup-plugin-vue2'
 
 const { isArray, uniq } = lodashPkg
 
@@ -36,7 +33,7 @@ const globSync = promisify(glob)
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const UI_PATH = path.resolve(__dirname, '..', '..', '..', '@custom-ui')
+const UI_PATH = path.resolve(__dirname, '..', '..', '..', '@custom-ui-vue2')
 const DIST = 'dist'
 const PACKAGE_INDEX_SCRIPT = 'index.js'
 const PACKAGE_INDEX_STYLE = 'style.css'
@@ -62,31 +59,13 @@ async function getPlugins(buildOpt) {
       targets: path.resolve(buildOpt.componentPath, DIST, '*')
     }),
     alias({
-      resolve: ['.js', '.ts', '.vue'],
+      resolve: ['.js', '.vue'],
       entries: [
         { find: '@', replacement: path.resolve(buildOpt.componentPath, 'src') }
       ]
     }),
-    tsConfigFileStat &&
-      typescriptPlugin({
-        // FIXME:
-        tsconfig: tsConfigFilePath,
-        filterRoot: buildOpt.componentPath,
-        sourceMap: !IS_PRODUCTION,
-        inlineSources: !IS_PRODUCTION,
-        typescript: ttypescript,
-        tsconfigDefaults: {
-          compilerOptions: {
-            plugins: [
-              {
-                transform: '@zerollup/ts-transform-paths',
-                exclude: ['*']
-              }
-            ]
-          }
-        }
-      }),
     vuePlugin({
+      include: path.resolve(buildOpt.componentPath, '**/*.vue'),
       css: false
     }),
     postCSSPlugin({
@@ -142,7 +121,7 @@ async function startBuild(buildOpts = {}) {
 
 async function buildComponents() {
   const pathRegex = path.join(UI_PATH, '**', 'package.json')
-  const ignorePaths = ['**/node_modules/**']
+  const ignorePaths = ['**/node_modules/**', '**/@build-utils-vue2/**', '**/@custom-ui-docs-vue2/**']
   const allPackageJsons = await globSync(pathRegex, { ignore: ignorePaths })
   const componentMap = {}
   allPackageJsons.forEach((packageJson) => {

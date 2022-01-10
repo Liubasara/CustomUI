@@ -4,13 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "lerna": "lerna"
+  },
   "workspaces": [
     "packages/@custom-ui/*",
-    "packages/@custom-ui-vue2/*",
-    "packages/@custom-ui-docs",
-    "packages/@custom-ui-docs-vue2",
-    "packages/build-utils",
-    "packages/build-utils-vue2"
+    "packages/@custom-ui-vue2/*"
   ],
   "devDependencies": {
     "lerna": "4.0.0"

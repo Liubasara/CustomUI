@@ -1,5 +1,5 @@
-import TSTemplate from '@custom-liubasara-ui/frame-select'
-import '@custom-liubasara-ui/frame-select/dist/style.css'
+import TSTemplate from '@custom-lb-ui/frame-select'
+import '@custom-lb-ui/frame-select/dist/style.css'
 
 export default {
   title: 'TSTemplate',

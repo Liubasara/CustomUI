@@ -4,6 +4,7 @@
 > 
 > - [Monorepo-多包单仓库的开发模式](https://juejin.cn/post/6844904206076248072)
 > - [Lerna + yarn 实现 monorepo 管理](https://juejin.cn/post/6844904112534847501)
+> - [为什么使用pnpm可以光速建立好用的monorepo（比yarn/lerna效率高）](https://blog.csdn.net/qq_21567385/article/details/118590143)
 
 ## TODO LIST
 
@@ -28,9 +29,10 @@ lerna info versioning independent
     OS: macOS 10.15.7
     CPU: (12) x64 Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
   Binaries:
-    Node: 14.15.0 - /var/folders/5d/815wbg8x7fqdszcwpnnfv1xr0000gn/T/yarn--1638672100483-0.05005264529990461/node
-    Yarn: 1.22.17 - /var/folders/5d/815wbg8x7fqdszcwpnnfv1xr0000gn/T/yarn--1638672100483-0.05005264529990461/yarn
+    Node: 14.15.0 - /usr/local/bin/node
+    Yarn: 1.22.17 - /usr/local/bin/yarn
     npm: 6.14.8 - /usr/local/bin/npm
+    pnpm: 6.25.0 - /usr/local/bin/pnpm
   Utilities:
     Git: 2.24.3 - /usr/bin/git
   npmPackages:
@@ -45,25 +47,21 @@ lerna info versioning independent
 
 构建特定组件（--component 参数，-w 为 watch 模式）:
 
-yarn workspace @custom-lb/build-utils build:customUI --component=@custom-lb-ui/frame-select -w
+pnpm --filter=@custom-lb/build-utils run build:customUI -- --component=@custom-lb-ui/common-search-input
+
+storybook 启动:
+
+pnpm --filter=@custom-lb-ui/docs-vue2 run storybook
 
 ### 查看当前 worktree:
 
 yarn workspaces info --json
 
-### 依赖安装相关
+### pnpm 相关
 
-yarn 单独安装一个 packages 的依赖（防止安装到根目录的 node_modules 下的时候某些 webpack loaders 会无法识别相应路径）:
-
-`yarn workspace <PACKAGE_NAME> install --focus`
-
-> [default focusing](https://classic.yarnpkg.com/blog/2018/05/18/focused-workspaces/#focusing-by-default)
-
-### link 相关
-
-yarn lerna exec -- yarn link
-
-lerna exec -- yarn unlink
+shamefully-hoist: 允许访问外部 node_modules（多用于 typescript 的 @types）
+save-workspace-protocol: 禁用 package.json 中的 workspace 语法
+prefer-workspace-packages: 安装依赖时优先 link 本地 workspace 中的包
 
 ### 发布流程
 

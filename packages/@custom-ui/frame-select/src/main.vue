@@ -11,9 +11,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { useDemo } from '@/hooks/useDemo'
-import Demo from '@/components/Demo.vue'
+import { defineComponent, ref } from 'vue'
+import type { Ref } from 'vue'
+import { useDemo } from './hooks/useDemo'
+import Demo from './components/Demo.vue'
 import CommonSearchInput from '@custom-lb-ui/common-search-input'
 
 export default defineComponent({
@@ -23,7 +24,7 @@ export default defineComponent({
   },
   setup() {
     // const TSTemplate = 'my ts template'
-    const TSTemplate: string = 'my ts template'
+    const TSTemplate: Ref<string> = ref('my ts template')
     useDemo()
     return {
       TSTemplate
@@ -33,8 +34,8 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@import "~@custom-lb-ui/frame-select/main.less";
-@import "./main.less";
+@import '~@custom-lb-ui/frame-select/main.less';
+@import './main.less';
 
 .ts-template {
   background: #000;

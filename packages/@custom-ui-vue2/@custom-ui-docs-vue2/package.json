@@ -8,7 +8,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "storybook": "^6.4.9"
+    "storybook": "^6.4.9",
+    "@custom-lb-ui/v-contextmenu-transform": "^0.0.1-alpha.35"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",

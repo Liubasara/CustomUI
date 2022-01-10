@@ -4,11 +4,16 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build:customUI": "node ./src/custom-ui/build.js"
+    "build:customUI": "node ./src/build.js"
   },
   "dependencies": {
     "@rollup/plugin-alias": "^3.1.9",
+    "autoprefixer": "^10.4.0",
+    "chalk": "^5.0.0",
+    "glob": "7.2.0",
+    "less": "^4.1.2",
     "lodash": "^4.17.21",
+    "minimist": "^1.2.5",
     "ora": "^6.0.1",
     "postcss": "^8.2.15",
     "rollup": "^2.63.0",

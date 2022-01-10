@@ -1,5 +1,5 @@
-import JSTemplate from '@custom-liubasara-ui/common-search-input'
-import '@custom-liubasara-ui/common-search-input/dist/style.css'
+import JSTemplate from '@custom-lb-ui/common-search-input'
+import '@custom-lb-ui/common-search-input/dist/style.css'
 
 export default {
   title: 'JSTemplate',
