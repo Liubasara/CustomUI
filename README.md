@@ -5,6 +5,9 @@
 > - [Monorepo-多包单仓库的开发模式](https://juejin.cn/post/6844904206076248072)
 > - [Lerna + yarn 实现 monorepo 管理](https://juejin.cn/post/6844904112534847501)
 > - [为什么使用pnpm可以光速建立好用的monorepo（比yarn/lerna效率高）](https://blog.csdn.net/qq_21567385/article/details/118590143)
+> - [plop 官方库](https://github.com/plopjs/plop)
+> - [.hbs文件 Handlebars文档](https://handlebarsjs.com/guide)
+> - [前端黑科技篇章之plop，让你也拥有自己的脚手架](https://juejin.cn/post/6953981951569051685)
 
 ## TODO LIST
 
@@ -44,6 +47,10 @@ lerna info versioning independent
 ## 命令相关
 
 ### 构建相关
+
+根据模板添加组件:
+
+pnpm plop --plopfile=plop/plopfile.js
 
 构建特定组件（--component 参数，-w 为 watch 模式）:
 

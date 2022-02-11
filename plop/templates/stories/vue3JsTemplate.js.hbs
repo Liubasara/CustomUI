@@ -1,0 +1,25 @@
+import {{ componentName }} from '@custom-lb-ui/{{ packageName }}'
+import '@custom-lb-ui/{{ packageName }}/dist/style.css'
+
+export default {
+  title: '{{ componentName }}',
+  component: {{ componentName }},
+  argTypes: {},
+};
+
+const Template = (args) => ({
+  // Components used in your story `template` are defined in the `components` object
+  components: { {{ componentName }} },
+  // The story's `args` need to be mapped into the template through the `setup()` method
+  setup() {
+    // Story args can be spread into the returned object
+    return { ...args };
+  },
+  // Then, the spread values can be accessed directly in the template
+  template: '<{{ componentName }} />',
+});
+
+export const Primary = Template.bind({});
+Primary.args = {
+  // user: {},
+};

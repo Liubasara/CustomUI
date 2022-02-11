@@ -5,13 +5,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "lerna": "lerna"
+    "template": "plop --plopfile=plop/plopfile.js"
   },
   "workspaces": [
     "packages/@custom-ui/*",
     "packages/@custom-ui-vue2/*"
   ],
   "devDependencies": {
-    "lerna": "4.0.0"
+    "lerna": "4.0.0",
+    "plop": "^3.0.5"
   }
 }
