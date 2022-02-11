@@ -4,6 +4,20 @@ module.exports = {
       test: /\.less$/,
       use: ['vue-style-loader', 'css-loader', 'less-loader']
     })
+    config.module.rules.push({
+      test: /\.styl$/,
+      use: ['vue-style-loader', 'css-loader', 'stylus-loader']
+    })
+    config.module.rules.push({
+      test: /\.vue$/,
+      loader: 'vue-loader',
+      options: {
+        loaders: {
+          less: ['vue-style-loader', 'css-loader', 'less-loader'],
+          stylus: ['vue-style-loader', 'css-loader', 'stylus-loader']
+        }
+      }
+    })
     return config
   },
   stories: [

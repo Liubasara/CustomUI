@@ -2,7 +2,7 @@
 
 forked from https://github.com/heynext/v-contextmenu/tree/168393311350b3ff47ed943f9d39bf34173dc204
 
-添加 v-contextmenu-submenu-transform
+add v-contextmenu-submenu-transform
 
 [![NPM version][badge-npm-version]][url-npm]
 [![Node version][badge-node-version]][url-npm]
@@ -12,44 +12,44 @@ forked from https://github.com/heynext/v-contextmenu/tree/168393311350b3ff47ed94
 
 [![NPM][image-npm]][url-npm]
 
-适用于 Vue 2.0 的 ContextMenu 组件。
+ContextMenu component for Vue 2.0.
 
-**中文 | [English](./README_EN.md)**
+**English | [中文](./README.md)**
 
-## 安装
+## Installation
 
-### CDN 引入
+### CDN
 
-可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
+Get the latest version from [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/), and then import JavaScript and CSS file in your page.
 
 ``` html
-<!-- 引入 Vue -->
+<!-- import Vue -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-<!-- 引入 VContextmenu 组件 -->
+<!-- import JavaScript -->
 <script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
 
-<!-- 引入 VContextmenu 组件样式 -->
+<!-- import CSS -->
 <link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css">
 ```
 
-> 建议使用 NPM 安装
+> NPM is recommended.
 
-### NPM 安装
+### NPM
 
 ```bash
 $ npm i -S v-contextmenu # yarn add v-contextmenu
 ```
 
-## 概览
+## Gallery
 
-![概览](./docs/images/gallery.jpg)
+![gallery](./docs/images/gallery.jpg)
 
-[访问在线示例](https://heynext.github.io/v-contextmenu) 或 [查看在线示例 GIF](./docs/images/example.gif)
+[Go online examples](https://heynext.github.io/v-contextmenu) or [see online examples' GIF](./docs/images/example.gif)
 
-## 使用
+## Usage
 
-一个简单的例子
+A simple example
 
 ```javascript
 import contentmenu from 'v-contextmenu'
@@ -61,53 +61,53 @@ Vue.use(contentmenu)
 ```html
 <template>
   <v-contextmenu ref="contextmenu">
-    <v-contextmenu-item>菜单1</v-contextmenu-item>
-    <v-contextmenu-item>菜单2</v-contextmenu-item>
-    <v-contextmenu-item>菜单3</v-contextmenu-item>
+    <v-contextmenu-item>Menu Item 1</v-contextmenu-item>
+    <v-contextmenu-item>Menu Item 2</v-contextmenu-item>
+    <v-contextmenu-item>Menu Item 3</v-contextmenu-item>
   </v-contextmenu>
 
-  <div v-contextmenu:contextmenu>右键点击此区域</div>
+  <div v-contextmenu:contextmenu>Right click here</div>
 </template>
 ```
 
-详细使用方法见 [文档](./docs/usage.md) & [例子](./examples)
+See [usage](./docs/usage-en.md) & [examples](./examples) for more details.
 
-> 如果你需要单独引入组件使用，请查看[单独引用](./examples/Stoneless.vue)
+> See [Stoneless](./examples/Stoneless.vue) to manually import.
 
-## 主题
+## Theme
 
-提供三种主题，使用方法见 [VContextmenu](./docs/usage.md#vcontextmenu)
+There are three themes，see [VContextmenu](./docs/usage-en.md#vcontextmenu) for more details.
 
-**默认**
+**Default**
 
 ![default](./docs/images/default.jpg)
 
-**亮色**
+**Bright**
 
 ![bright](./docs/images/bright.jpg)
 
-**暗色**
+**Dark**
 
 ![dark](./docs/images/dark.jpg)
 
-## 开发
+## Develop
 
 ```bash
 $ npm install
 $ npm run dev
 ```
 
-## 构建
+## Build
 
 ```bash
-$ npm run build:package # 构建 npm 包
-$ npm run build:example # 构建示例站点
+$ npm run build:package # Build for npm
+$ npm run build:example # Build for site
 $ npm run build # build:package & build:example
 ```
 
-## 更新日志
+## Changelog
 
-详见 [releases][url-releases]
+See [releases][url-releases]
 
 
 [badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu.svg

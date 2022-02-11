@@ -1,9 +1,32 @@
-import vContextmenuTransform from './main.vue'
-import OptionalCom from './optionalCom.vue'
+import directive from './directive'
 
-export default vContextmenuTransform
+import Contextmenu from './components/Contextmenu.vue'
+import ContextmenuItem from './components/ContextmenuItem.vue'
+import ContextmenuSubmenu from './components/ContextmenuSubmenu.vue'
+import ContextmenuGroup from './components/ContextmenuGroup.vue'
+
+const install = (Vue) => {
+  Vue.directive('contextmenu', directive)
+
+  Vue.component(Contextmenu.name, Contextmenu)
+  Vue.component(ContextmenuItem.name, ContextmenuItem)
+  Vue.component(ContextmenuSubmenu.name, ContextmenuSubmenu)
+  Vue.component(ContextmenuGroup.name, ContextmenuGroup)
+}
 
 export {
-  vContextmenuTransform,
-  OptionalCom
+  directive,
+
+  Contextmenu,
+  ContextmenuItem,
+  ContextmenuSubmenu,
+  ContextmenuGroup,
+}
+
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+export default {
+  install,
 }
