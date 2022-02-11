@@ -8,7 +8,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@custom-lb-ui/v-contextmenu-transform": "^0.0.1-alpha.35",
+    "@custom-lb-ui/v-contextmenu-transform": "^0.0.0",
     "storybook": "^6.4.9"
   },
   "devDependencies": {

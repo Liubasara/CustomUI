@@ -1,11 +1,12 @@
 {
   "name": "@custom-lb-ui/v-contextmenu-transform",
-  "version": "0.0.1-alpha.35+414f518",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "srcEntry": "src/index.js",
   "license": "MIT",
   "dependencies": {
     "@vue/composition-api": "^1.4.3",
+    "install": "^0.13.0",
     "vue": "^2.6.12"
   },
   "publishConfig": {
