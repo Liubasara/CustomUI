@@ -1,10 +1,9 @@
 {
   "packages": [
-    "packages/@custom-ui/*",
-    "packages/@custom-ui-vue2/*"
+    "packages/**"
   ],
   "version": "independent",
-  "npmClient": "yarn",
+  "npmClient": "pnpm",
   "useWorkspaces": true,
   "command": {
     "bootstrap": {
@@ -12,7 +11,7 @@
       "npmClientArgs": ["--no-package-lock", "--no-ci"]
     },
     "version": {
-      "allowBranch": ["master"],
+      "allowBranch": ["master", "func-add-v-contextmenu-transform"],
       "amend": false,
       "conventionalCommits": true
     },

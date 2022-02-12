@@ -2,7 +2,7 @@
   "name": "@custom-lb-ui/v-contextmenu-transform",
   "description": "ContextMenu based on Vue 2.0 forked version which use transform contextsubmenu",
   "version": "2.9.0",
-  "author": "heynext <heynext.xyz@gmail.com>",
+  "author": "liubasara <followliu@163.com>",
   "main": "dist/index.common.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -56,12 +56,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/heynext/v-contextmenu.git"
+    "url": "https://github.com/Liubasara/CustomUI/tree/func-add-v-contextmenu-transform/packages/v-contextmenu-transform"
   },
   "bugs": {
     "url": "https://github.com/heynext/v-contextmenu/issues"
   },
-  "homepage": "https://github.com/heynext/v-contextmenu",
+  "homepage": "https://github.com/Liubasara/CustomUI/tree/func-add-v-contextmenu-transform/packages/v-contextmenu-transform",
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
