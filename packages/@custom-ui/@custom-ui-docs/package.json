@@ -1,6 +1,6 @@
 {
   "name": "@custom-lb-ui/docs",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "license": "MIT",
   "scripts": {
     "init:storybook": "sb init",
@@ -8,8 +8,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@custom-lb-ui/common-search-input": "0.0.1",
-    "@custom-lb-ui/frame-select": "0.0.1",
+    "@custom-lb-ui/common-search-input": "^0.0.2-alpha.0",
+    "@custom-lb-ui/frame-select": "^0.0.2-alpha.0",
     "jest": "27.4.3",
     "storybook": "6.2.9"
   },
@@ -20,8 +20,8 @@
     "@storybook/addon-links": "^6.4.9",
     "@storybook/vue3": "^6.4.9",
     "babel-loader": "^8.2.3",
-    "vue-loader": "^16.8.3",
-    "vue": "^3.2.23"
+    "vue": "^3.2.23",
+    "vue-loader": "^16.8.3"
   },
   "publishConfig": {
     "access": "public"

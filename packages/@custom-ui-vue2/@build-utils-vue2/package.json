@@ -1,6 +1,6 @@
 {
   "name": "@custom-lb/build-utils-vue2",
-  "version": "0.0.1-alpha.37+9cd05fa",
+  "version": "0.0.2-alpha.0",
   "license": "MIT",
   "type": "module",
   "scripts": {
