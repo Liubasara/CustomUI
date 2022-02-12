@@ -2,7 +2,17 @@
 
 forked from https://github.com/heynext/v-contextmenu/tree/168393311350b3ff47ed943f9d39bf34173dc204
 
-添加 v-contextmenu-submenu-transform
+添加 v-contextmenu-submenu-transform：
+
+[Demo Address](https://codesandbox.io/s/contextmenusubmenutransformdemo-g5h2c)
+
+or
+
+run command:
+
+```shell
+pnpm install && pnpm --filter=@custom-lb-ui/v-contextmenu-transform dev
+```
 
 [![NPM version][badge-npm-version]][url-npm]
 [![Node version][badge-node-version]][url-npm]
