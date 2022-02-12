@@ -6,20 +6,19 @@
 
       <v-contextmenu-item divider></v-contextmenu-item>
 
-      <v-contextmenu-submenu @submenu-show="handleSubmenuShow" title="子菜单">
+      <v-contextmenu-submenu-transform @submenu-show="handleSubmenuShow" title="子菜单1">
         <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
 
         <v-contextmenu-item divider></v-contextmenu-item>
 
-        <v-contextmenu-submenu title="子菜单">
-          <v-contextmenu-item @click="handleClick">菜单5</v-contextmenu-item>
-        </v-contextmenu-submenu>
-
-        <v-contextmenu-item @click="handleClick">菜单4</v-contextmenu-item>
+        <v-contextmenu-submenu-transform :level="1" title="子菜单2">
+          <v-contextmenu-item :auto-hide="false" @click="handleClick">不自动关闭</v-contextmenu-item>
+          <v-contextmenu-item @click="handleClick">菜单6</v-contextmenu-item>
+        </v-contextmenu-submenu-transform>
 
         <v-contextmenu-item :auto-hide="false">不自动关闭1</v-contextmenu-item>
         <v-contextmenu-item :auto-hide="false">不自动关闭2</v-contextmenu-item>
-      </v-contextmenu-submenu>
+      </v-contextmenu-submenu-transform>
 
       <v-contextmenu-item @click="handleClick">菜单4</v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单5</v-contextmenu-item>
@@ -35,7 +34,7 @@
 
 <script>
 export default {
-  name: 'Submenu',
+  name: 'SubmenuTransform',
 
   props: {
     theme: String,
