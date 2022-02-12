@@ -144,7 +144,7 @@
         return `${this.currentExample}.vue`
       },
       currentExampleSourceUrl () {
-        const baseUrl = 'https://github.com/heynext/v-contextmenu/blob/master/examples'
+        const baseUrl = 'https://github.com/heynext/v-contextmenu/tree/2.x/examples'
         const fileName = this.currentExampleFileName
 
         return `${baseUrl}/${fileName}`
