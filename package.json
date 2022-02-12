@@ -8,8 +8,7 @@
     "template": "plop --plopfile=plop/plopfile.js"
   },
   "workspaces": [
-    "packages/@custom-ui/*",
-    "packages/@custom-ui-vue2/*"
+    "packages/**"
   ],
   "devDependencies": {
     "lerna": "4.0.0",
