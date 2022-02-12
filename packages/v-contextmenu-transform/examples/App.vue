@@ -159,8 +159,8 @@ export default {
     currentExampleSourceUrl() {
       switch (this.currentExampleFileName) {
         case 'SubmenuTransform.vue':
-          // FIXME: use transform url
-          return 'https://baidu.com'
+          // use transform url
+          return 'https://github.com/Liubasara/CustomUI/blob/func-add-v-contextmenu-transform/packages/v-contextmenu-transform/src/components/ContextmenuSubmenuTransform.vue'
         default:
           const baseUrl = 'https://github.com/heynext/v-contextmenu/tree/2.x/examples'
           const fileName = this.currentExampleFileName
