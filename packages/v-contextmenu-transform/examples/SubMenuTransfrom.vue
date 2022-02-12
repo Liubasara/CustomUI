@@ -14,6 +14,14 @@
         <v-contextmenu-submenu-transform :level="1" title="子菜单2">
           <v-contextmenu-item :auto-hide="false" @click="handleClick">不自动关闭</v-contextmenu-item>
           <v-contextmenu-item @click="handleClick">菜单6</v-contextmenu-item>
+          <v-contextmenu-submenu-transform :level="2" title="子菜单3">
+            <v-contextmenu-item :auto-hide="false" @click="handleClick">不自动关闭</v-contextmenu-item>
+            <v-contextmenu-item @click="handleClick">菜单7</v-contextmenu-item>
+            <v-contextmenu-submenu-transform :level="3" title="子菜单3">
+              <v-contextmenu-item :auto-hide="false" @click="handleClick">不自动关闭</v-contextmenu-item>
+              <v-contextmenu-item @click="handleClick">菜单8</v-contextmenu-item>
+            </v-contextmenu-submenu-transform>
+          </v-contextmenu-submenu-transform>
         </v-contextmenu-submenu-transform>
 
         <v-contextmenu-item :auto-hide="false">不自动关闭1</v-contextmenu-item>

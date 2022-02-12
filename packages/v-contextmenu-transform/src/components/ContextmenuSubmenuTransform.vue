@@ -180,19 +180,18 @@ export default {
     addSubMenuRef() {
       const self = this;
       const SubMenuConstr = Vue.extend({
-        name: 'VContextmenuSubmenuTransform',
-        render: h =>
-          h(
+        name: 'VContextmenuSubmenuTransformInstance',
+        render(h) {
+          const _this = this
+          return h(
             'ul',
             {
               on: {
                 mouseenter(event) {
-                  self.transformSubmenuHover = true;
-                  self.$emit('transformMouseEnter', self, event);
+                  _this.$emit('transformMouseEnter', self, event);
                 },
                 mouseleave(event) {
-                  self.transformSubmenuHover = false;
-                  self.$emit('transformMouseLeave', self, event);
+                  _this.$emit('transformMouseLeave', self, event);
                 }
               },
               class: [
@@ -208,7 +207,8 @@ export default {
               ]
             },
             [self.$slots.default]
-          ),
+          )
+        },
         provide() {
           return {
             $$contextmenu: self.$$contextmenu,
@@ -223,6 +223,20 @@ export default {
       this.transformSubMenu = instance.$mount();
       document.body.appendChild(this.transformSubMenu.$el);
       this.$$contextmenu.submenuTransformReferences.push(this.transformSubMenu)
+      this.transformSubMenu.$on('transformMouseEnter', function (...args) {
+        this.$parent.$emit('transformMouseEnter', ...args)
+      })
+      this.transformSubMenu.$on('transformMouseLeave', function (...args) {
+        this.$parent.$emit('transformMouseLeave', ...args)
+      })
+      self.$on('transformMouseEnter', function (...args) {
+        this.transformSubmenuHover = true
+        this.$parent.$emit('transformMouseEnter', ...args)
+      })
+      self.$on('transformMouseLeave', function (...args) {
+        this.transformSubmenuHover = false
+        this.$parent.$emit('transformMouseLeave', ...args)
+      })
     },
     removeSubMenuRef() {
       if (this.transformSubMenu) {
