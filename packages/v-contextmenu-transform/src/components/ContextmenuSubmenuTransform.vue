@@ -83,7 +83,7 @@ export default {
         position: 'absolute',
         top: 0,
         left: 0,
-        zIndex: this.level + this.baseZIndex
+        zIndex: this.level + 1 + this.baseZIndex
       },
       targetDimension: null
     };
