@@ -1,7 +1,11 @@
 <!-- 为基础 submenu 添加基于 body 的 transform 二级菜单展示功能 -->
 <template>
-  <li :class="classname" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
-    <slot name="icon"></slot>
+  <li
+    :class="classname"
+    @mouseenter="handleMouseenter"
+    @mouseleave="handleMouseleave"
+  >
+    <slot name="icon" />
     <span class="v-contextmenu-submenu__title">
       <slot name="title">{{ title }}</slot>
 
@@ -9,7 +13,11 @@
     </span>
 
     <template v-if="!useTransform">
-      <ul v-show="hover" ref="submenu" :class="submenuCls">
+      <ul
+        v-show="hover"
+        ref="submenu"
+        :class="submenuCls"
+      >
         <slot />
       </ul>
     </template>
@@ -25,7 +33,10 @@ export default {
   inject: ['$$contextmenu'],
 
   props: {
-    title: String,
+    title: {
+      type: String,
+      default: ''
+    },
     disabled: Boolean,
     useTransform: {
       type: Boolean,
@@ -61,16 +72,6 @@ export default {
     }
   },
 
-  mounted() {
-    this.useTransform && this.addSubMenuRef();
-  },
-  beforeDestroy() {
-    this.useTransform && this.removeSubMenuRef();
-  },
-  beforeUpdate() {
-    this.useTransform && this.transformSubMenu && this.transformSubMenu.$forceUpdate && this.transformSubMenu.$forceUpdate();
-  },
-
   data() {
     return {
       hover: false,
@@ -87,13 +88,6 @@ export default {
       },
       targetDimension: null
     };
-  },
-  watch: {
-    '$$contextmenu.visible': function (val) {
-      if (this.useTransform) {
-        this.transformMenuVisible = val;
-      }
-    }
   },
   computed: {
     classname() {
@@ -112,6 +106,23 @@ export default {
         this.transformMenuVisible && (this.hover || this.transformSubmenuHover)
       );
     }
+  },
+  watch: {
+    '$$contextmenu.visible': function (val) {
+      if (this.useTransform) {
+        this.transformMenuVisible = val;
+      }
+    }
+  },
+
+  mounted() {
+    this.useTransform && this.addSubMenuRef();
+  },
+  beforeDestroy() {
+    this.useTransform && this.removeSubMenuRef();
+  },
+  beforeUpdate() {
+    this.useTransform && this.transformSubMenu && this.transformSubMenu.$forceUpdate && this.transformSubMenu.$forceUpdate();
   },
 
   methods: {

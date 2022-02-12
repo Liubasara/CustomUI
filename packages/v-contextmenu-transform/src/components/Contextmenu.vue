@@ -1,5 +1,10 @@
 <template>
-  <ul v-show="visible" ref="contextmenu" :class="contextmenuCls" :style="style">
+  <ul
+    v-show="visible"
+    ref="contextmenu"
+    :class="contextmenuCls"
+    :style="style"
+  >
     <slot />
   </ul>
 </template>

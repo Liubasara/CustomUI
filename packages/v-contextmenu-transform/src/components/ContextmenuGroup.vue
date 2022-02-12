@@ -10,24 +10,27 @@
 </template>
 
 <script>
-  export default {
-    name: 'VContextmenuGroup',
+export default {
+  name: 'VContextmenuGroup',
 
-    props: {
-      maxWidth: [Number, String],
+  props: {
+    maxWidth: {
+      type: [Number, String],
+      default: ''
     },
+  },
 
-    computed: {
-      menusStyle () {
-        if (!this.maxWidth) return null
+  computed: {
+    menusStyle() {
+      if (!this.maxWidth) return null
 
-        const style = {
-          'max-width': typeof this.maxWidth === 'number' ? `${this.maxWidth}px` : this.maxWidth,
-          'overflow-x': 'auto',
-        }
+      const style = {
+        'max-width': typeof this.maxWidth === 'number' ? `${this.maxWidth}px` : this.maxWidth,
+        'overflow-x': 'auto',
+      }
 
-        return style
-      },
+      return style
     },
-  }
+  },
+}
 </script>
