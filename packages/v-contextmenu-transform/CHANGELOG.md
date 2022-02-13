@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.4-alpha.0](https://github.com/Liubasara/CustomUI/compare/@custom-lb-ui/v-contextmenu-transform@2.9.3-alpha.0...@custom-lb-ui/v-contextmenu-transform@2.9.4-alpha.0) (2022-02-13)
+
+
+### Bug Fixes
+
+* zIndex ([835e844](https://github.com/Liubasara/CustomUI/commit/835e844b91f26b5717e45e0c13354f1961416558))
+
+
+
+
+
 ## [2.9.3-alpha.0](https://github.com/Liubasara/CustomUI/compare/@custom-lb-ui/v-contextmenu-transform@2.9.2-alpha.0...@custom-lb-ui/v-contextmenu-transform@2.9.3-alpha.0) (2022-02-13)
 
 
