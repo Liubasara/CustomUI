@@ -11,13 +11,13 @@
 
         <v-contextmenu-item divider></v-contextmenu-item>
 
-        <v-contextmenu-submenu-transform :level="1" title="子菜单2">
+        <v-contextmenu-submenu-transform title="子菜单2">
           <v-contextmenu-item :auto-hide="false" @click="handleClick">不自动关闭</v-contextmenu-item>
           <v-contextmenu-item @click="handleClick">菜单6</v-contextmenu-item>
-          <v-contextmenu-submenu-transform :level="2" title="子菜单3">
+          <v-contextmenu-submenu-transform title="子菜单3">
             <v-contextmenu-item :auto-hide="false" @click="handleClick">不自动关闭</v-contextmenu-item>
             <v-contextmenu-item @click="handleClick">菜单7</v-contextmenu-item>
-            <v-contextmenu-submenu-transform :level="3" title="子菜单3">
+            <v-contextmenu-submenu-transform title="子菜单3">
               <v-contextmenu-item :auto-hide="false" @click="handleClick">不自动关闭</v-contextmenu-item>
               <v-contextmenu-item @click="handleClick">菜单8</v-contextmenu-item>
             </v-contextmenu-submenu-transform>
@@ -77,6 +77,6 @@ export default {
 <style>
 .example-submenu-transform.v-contextmenu {
   overflow: scroll;
-  max-height: 100px;
+  max-height: 300px;
 }
 </style>

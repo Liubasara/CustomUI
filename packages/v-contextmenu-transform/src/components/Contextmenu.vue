@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { ZIndexManager } from '../utils'
+
 export default {
   name: 'VContextmenu',
 
@@ -33,6 +35,10 @@ export default {
       default: true,
     },
     disabled: Boolean,
+    baseZIndex: {
+      type: Number,
+      default: 2800
+    }
   },
 
   data() {
@@ -73,6 +79,13 @@ export default {
         document.body.removeEventListener('click', this.handleBodyClick)
       }
     },
+    baseZIndex: {
+      handler(value) {
+        ZIndexManager.setZIndex(value)
+        document.documentElement.style.setProperty('--v-contextmenu-z-index', ZIndexManager.zIndex)
+      },
+      immediate: true
+    }
   },
   mounted() {
     document.body.appendChild(this.$el)

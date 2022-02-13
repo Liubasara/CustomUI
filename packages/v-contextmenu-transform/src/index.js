@@ -1,4 +1,5 @@
 import directive from './directive'
+import { ZIndexManager as VContextmenuZIndexManager } from './utils'
 
 import Contextmenu from './components/Contextmenu.vue'
 import ContextmenuItem from './components/ContextmenuItem.vue'
@@ -18,6 +19,7 @@ const install = (Vue) => {
 
 export {
   directive,
+  VContextmenuZIndexManager,
 
   Contextmenu,
   ContextmenuItem,

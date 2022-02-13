@@ -26,6 +26,7 @@
 
 <script>
 import Vue from 'vue';
+import { ZIndexManager } from '../utils'
 
 export default {
   name: 'VContextmenuSubmenuTransform',
@@ -61,14 +62,6 @@ export default {
     transformClass: {
       type: String,
       default: ''
-    },
-    baseZIndex: {
-      type: Number,
-      default: 2800
-    },
-    level: {
-      type: Number,
-      default: 0
     }
   },
 
@@ -84,7 +77,7 @@ export default {
         position: 'absolute',
         top: 0,
         left: 0,
-        zIndex: this.level + 1 + this.baseZIndex
+        zIndex: ZIndexManager.nextZIndex()
       },
       targetDimension: null
     };
