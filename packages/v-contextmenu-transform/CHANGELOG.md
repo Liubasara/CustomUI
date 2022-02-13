@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.5-alpha.0](https://github.com/Liubasara/CustomUI/compare/@custom-lb-ui/v-contextmenu-transform@2.9.4-alpha.0...@custom-lb-ui/v-contextmenu-transform@2.9.5-alpha.0) (2022-02-13)
+
+
+### Bug Fixes
+
+* 去除不必要引用 ([f5f9a3f](https://github.com/Liubasara/CustomUI/commit/f5f9a3fd18b09384a280dcb99a0bad4249528506))
+
+
+
+
+
 ## [2.9.4-alpha.0](https://github.com/Liubasara/CustomUI/compare/@custom-lb-ui/v-contextmenu-transform@2.9.3-alpha.0...@custom-lb-ui/v-contextmenu-transform@2.9.4-alpha.0) (2022-02-13)
 
 

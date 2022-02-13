@@ -1,7 +1,7 @@
 {
   "name": "@custom-lb-ui/v-contextmenu-transform",
   "description": "ContextMenu based on Vue 2.0 forked version which use transform contextsubmenu",
-  "version": "2.9.4-alpha.0",
+  "version": "2.9.5-alpha.0",
   "author": "liubasara <followliu@163.com>",
   "main": "dist/index.common.js",
   "module": "dist/index.esm.js",
