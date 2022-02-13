@@ -12,7 +12,7 @@ export const ZIndexManager = {
     ZIndexManager.zIndex = val
   },
   nextZIndex() {
-    return ZIndexManager.zIndex++
+    return ++ZIndexManager.zIndex
   }
 }
 
