@@ -1,10 +1,6 @@
 <!-- 为基础 submenu 添加基于 body 的 transform 二级菜单展示功能 -->
 <template>
-  <li
-    :class="classname"
-    @mouseenter="handleMouseenter"
-    @mouseleave="handleMouseleave"
-  >
+  <li :class="classname" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
     <slot name="icon" />
     <span class="v-contextmenu-submenu__title">
       <slot name="title">{{ title }}</slot>
@@ -13,11 +9,7 @@
     </span>
 
     <template v-if="!useTransform">
-      <ul
-        v-show="hover"
-        ref="submenu"
-        :class="submenuCls"
-      >
+      <ul v-show="hover" ref="submenu" :class="submenuCls">
         <slot />
       </ul>
     </template>
@@ -71,7 +63,10 @@ export default {
       submenuPlacement: [],
       transformSubMenu: null,
       transformMenuVisible: true,
+      // 是否 hover 在 submenu 上
       transformSubmenuHover: false,
+      // 是否 hover 在嵌套的子级 submenu 上
+      transformChildSubmenuHover: false,
       transformStyle: {
         transform: 'unset',
         position: 'absolute',
@@ -87,7 +82,7 @@ export default {
       return {
         'v-contextmenu-item': true,
         'v-contextmenu-submenu': true,
-        'v-contextmenu-item--hover': this.hover || this.transformSubmenuHover,
+        'v-contextmenu-item--hover': this.hover || this.transformSubmenuHover || this.transformChildSubmenuHover,
         'v-contextmenu-item--disabled': this.disabled
       };
     },
@@ -96,7 +91,7 @@ export default {
     },
     _transformMenuVisible() {
       return (
-        this.transformMenuVisible && (this.hover || this.transformSubmenuHover)
+        this.transformMenuVisible && (this.hover || this.transformSubmenuHover || this.transformChildSubmenuHover)
       );
     }
   },
@@ -192,10 +187,14 @@ export default {
             {
               on: {
                 mouseenter(event) {
-                  _this.$emit('transformMouseEnter', self, event);
+                  self.transformSubmenuHover = true
+                  self.$emit('transformMouseEnter', self, event)
+                  _this.$emit('transformChildSubmenuMouseEnter', self, event);
                 },
                 mouseleave(event) {
-                  _this.$emit('transformMouseLeave', self, event);
+                  self.transformSubmenuHover = false
+                  self.$emit('transformMouseLeave', self, event)
+                  _this.$emit('transformChildSubmenuMouseLeave', self, event);
                 }
               },
               class: [
@@ -227,19 +226,19 @@ export default {
       this.transformSubMenu = instance.$mount();
       document.body.appendChild(this.transformSubMenu.$el);
       this.$$contextmenu.submenuTransformReferences.push(this.transformSubMenu)
-      this.transformSubMenu.$on('transformMouseEnter', function (...args) {
-        this.$parent.$emit('transformMouseEnter', ...args)
+      this.transformSubMenu.$on('transformChildSubmenuMouseEnter', function (...args) {
+        this.$parent.$emit('transformChildSubmenuMouseEnter', ...args)
       })
-      this.transformSubMenu.$on('transformMouseLeave', function (...args) {
-        this.$parent.$emit('transformMouseLeave', ...args)
+      this.transformSubMenu.$on('transformChildSubmenuMouseLeave', function (...args) {
+        this.$parent.$emit('transformChildSubmenuMouseLeave', ...args)
       })
-      self.$on('transformMouseEnter', function (...args) {
-        this.transformSubmenuHover = true
-        this.$parent.$emit('transformMouseEnter', ...args)
+      self.$on('transformChildSubmenuMouseEnter', function (...args) {
+        this.transformChildSubmenuHover = true
+        this.$parent.$emit('transformChildSubmenuMouseEnter', ...args)
       })
-      self.$on('transformMouseLeave', function (...args) {
-        this.transformSubmenuHover = false
-        this.$parent.$emit('transformMouseLeave', ...args)
+      self.$on('transformChildSubmenuMouseLeave', function (...args) {
+        this.transformChildSubmenuHover = false
+        this.$parent.$emit('transformChildSubmenuMouseLeave', ...args)
       })
     },
     removeSubMenuRef() {
