@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.7-alpha.0](https://github.com/Liubasara/CustomUI/compare/@custom-lb-ui/v-contextmenu-transform@2.9.5-alpha.0...@custom-lb-ui/v-contextmenu-transform@2.9.7-alpha.0) (2022-02-14)
+
+
+### Features
+
+* add transformChildSubmenuHover ([3f90419](https://github.com/Liubasara/CustomUI/commit/3f90419999be2d58060134fadabb8aef05b5e301))
+
+
+
+
+
 ## [2.9.6-alpha.0](https://github.com/Liubasara/CustomUI/compare/@custom-lb-ui/v-contextmenu-transform@2.9.5-alpha.0...@custom-lb-ui/v-contextmenu-transform@2.9.6-alpha.0) (2022-02-14)
 
 
