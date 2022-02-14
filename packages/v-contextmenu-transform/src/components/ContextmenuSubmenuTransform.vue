@@ -1,6 +1,10 @@
 <!-- 为基础 submenu 添加基于 body 的 transform 二级菜单展示功能 -->
 <template>
-  <li :class="classname" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
+  <li
+    :class="classname"
+    @mouseenter="handleMouseenter"
+    @mouseleave="handleMouseleave"
+  >
     <slot name="icon" />
     <span class="v-contextmenu-submenu__title">
       <slot name="title">{{ title }}</slot>
@@ -9,7 +13,11 @@
     </span>
 
     <template v-if="!useTransform">
-      <ul v-show="hover" ref="submenu" :class="submenuCls">
+      <ul
+        v-show="hover"
+        ref="submenu"
+        :class="submenuCls"
+      >
         <slot />
       </ul>
     </template>
