@@ -1,0 +1,38 @@
+<template>
+  <div>
+    <div class="ts-template">
+      <Demo></Demo>
+      \{{ TSTemplate }}
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import type { Ref } from 'vue'
+import { useDemo } from './hooks/useDemo'
+import Demo from './components/Demo.vue'
+
+export default defineComponent({
+  components: {
+    Demo
+  },
+  setup() {
+    // const TSTemplate = 'my ts template'
+    const TSTemplate: Ref<string> = ref('my ts template')
+    useDemo()
+    return {
+      TSTemplate
+    }
+  }
+})
+</script>
+
+<style lang="less" scoped>
+@import './main.less';
+
+.ts-template {
+  background: #000;
+  color: red;
+}
+</style>
